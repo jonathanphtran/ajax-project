@@ -35,7 +35,6 @@ function search(event) {
   food = $searchInput.value;
   var replaceSpaceFood = food.replace(' ', '%20');
   return replaceSpaceFood;
-  // var values = getAPIValue(replaceSpaceFood);
 }
 
 function getAPIValue(searchFood) {
@@ -83,6 +82,7 @@ function generateDomTree(foodValues) {
     image.setAttribute('src', foodImageSrc);
     image.setAttribute('alt', 'Item Preview');
     itemInfo.setAttribute('class', 'column item-desc-container');
+    itemName.setAttribute('class', 'item-name');
     itemDivider.setAttribute('class', 'item-divider');
 
     individualItem.append(image);
@@ -94,6 +94,7 @@ function generateDomTree(foodValues) {
 
     for (var macro in macroList) {
       var itemDesc = document.createElement('h4');
+      itemDesc.setAttribute('class', 'item-desc');
       var itemDescText = document.createTextNode(`${macro}: ` + macroList[macro]);
       itemDesc.append(itemDescText);
       itemInfo.append(itemDesc);
